@@ -61,23 +61,14 @@ Pandas, TensorFlow, Scikit-learn, Jupyter Notebook
     - Third Layer: Forty (40) neurons, Sigmoid as activation function
     - Output Layer: One (1) neuron, Sigmoid as activation function
     - Total Parameters: 5,981
-    - Result: 75% accuracy per the following snapshot:
+    - Result: Target 75% accuracy per the following snapshot:
 
 ![Optimized Test Accuracy](Images/optimized_accuracy.png)
 
 ## Summary
 
-Summary: Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and then explain your recommendation.
-
-* Visually, there appear to be two to three clusters, although they are not completely distinct. Suggested outlines as follows:
-
-![Logistic Regression](Images/scatter_plot.png)
-
-* Per the following elbow curve plotted using K-means cluster analysis, three clusters to the data are also suggested:
-
-![Random Forest Classifier](Images/elbow_curve.png)
-
-* Recommendation: This unsupervised learning model demonstrates that apparently three clusters exist in the dataset. For future analysis, use the "MYOPIC"--myopia diagnosis--feature of the dataset for labels/color on the scatter plot. Coloring by myopia diagnosis may show if there is tendency toward the condition amongst the three patient clusters observed. This added color analysis may support the suggestion that sub-categories of the patients exist which warrant separate predictor models.
+It took no small amount of trial and error to approach the 75% accuracy goal--adjusting layers, neurons, activation functions, and epochs in particular. 
+Recommendation: Use KerasTuner testing to determine a nominal neural network model.
 
 ## Source
 
