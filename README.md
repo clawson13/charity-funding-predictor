@@ -67,7 +67,7 @@ Pandas, TensorFlow, Scikit-learn, Jupyter Notebook
 
 ## Summary
 
-It took no small amount of trial and error to approach the 75% accuracy goal--repeatedly adjusting the combination of layers, neurons, activation functions, and epochs in particular. Recommendation: Use KerasTuner testing on the optimized dataset to more accrurately determine a nominal neural network model.
+It took no small amount of trial and error to approach the 75% accuracy goal--repeatedly adjusting the combination of layers, neurons, activation functions, and epochs in particular. Recommendation: Use KerasTuner testing on the optimized dataset to more accurately determine a nominal neural network model.
 
 ## Source
 
