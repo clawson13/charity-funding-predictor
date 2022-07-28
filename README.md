@@ -25,21 +25,50 @@ Pandas, TensorFlow, Scikit-learn, Jupyter Notebook
 * Variable target: 'IS_SUCCESSFUL' binary classifier.
 * Features included:
     - APPLICATION_TYPE
-- AFFILIATION
-- CLASSIFICATION
-- USE_CASE
-- ORGANIZATION
-- STATUS
-- INCOME_AMT
-SPECIAL_CONSIDERATIONS
-ASK_AMT
-IS_SUCCESSFUL
-What variable(s) should be removed from the input data because they are neither targets nor features?
+    - AFFILIATION
+    - CLASSIFICATION
+    - USE_CASE
+    - ORGANIZATION
+    - STATUS
+    - INCOME_AMT
+    - SPECIAL_CONSIDERATIONS
+    - ASK_AMT
+    - IS_SUCCESSFUL
+* The following features were removed since they serve as applicant identifiers only: 
+    - EIN
+    - NAME
 
+### Compiling, Training, and Evaluating the Model
+* 'APPLICATION_TYPE' and 'CLASSIFICATION' values with nominal counts were binned together into an 'Other' category to reduce noise.
+* After converting categorical data to numeric and splitting off the target 'IS_SUCCESSFUL' array, forty-two (42) features remained.
+* Given this larger number of final features, the model was initiated with three layers, one hundred (100) epochs:
+    - First Layer: Eighty (80) neurons, ReLU as activation function
+    - Second Layer: Thirty (30) neurons, ReLU as activation function
+    - Output Layer: One (1) neuron, Sigmoid as activation function
+    - Total Parameters: 5,981
+    - Result: 73% accuracy per the following snapshot:
 
-* Dataset is scaled and dimensionality reduction applied using PCA, while preserving 90% of the explained variance. Dimensions are further reduced using t-SNE. The output is plotted for visual analysis, and a cluster analysis is performed with K-means.
+![Initial Test Accuracy](Images/initial_accuracy.png)
 
-## Analysis & Recommendation
+### Optimization Model Adjustments
+* The 'STATUS' binary classification features was also removed. It is presumed that since this is a historical data set, whether an applicant is active or inactive should not determine historical success.
+* 'INCOME_AMT' value counts >$1M were also binned together to further reduce noise.
+* 'ASK_AMT' outlier values calculated at > $11,886 were trimmed.
+* Adjusted thirty-nine (39) features remained.
+* Model layers added/adjusted in multiple tests. Epochs also tested in range 10-500. Final accepted optimization as follows, one hundred (100) epochs only:
+    - First Layer: Eighty (80) neurons, ReLU as activation function
+    - Second Layer: Sixty (60) neurons, ReLU as activation function
+    - Third Layer: Forty (40) neurons, Sigmoid as activation function
+    - Output Layer: One (1) neuron, Sigmoid as activation function
+    - Total Parameters: 5,981
+    - Result: 75% accuracy per the following snapshot:
+
+![Optimized Test Accuracy](Images/optimized_accuracy.png)
+
+## Summary
+
+Summary: Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and then explain your recommendation.
+
 * Visually, there appear to be two to three clusters, although they are not completely distinct. Suggested outlines as follows:
 
 ![Logistic Regression](Images/scatter_plot.png)
@@ -52,7 +81,7 @@ What variable(s) should be removed from the input data because they are neither 
 
 ## Source
 
-* Reduced dataset from [Orinda Longitudinal Study of Myopia conducted by the US National Eye Institute](https://clinicaltrials.gov/ct2/show/NCT00000169)
+* 2022 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
 
 ## Contact
 E-mail: clawson131@gmail.com<br>
